@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>HELDORYA - Modded Minecraft Server</title>
+
+<style>
+
+  /* Background */
+
+  body {
+
+    margin: 0;
+
+    font-family: 'Palatino Linotype', Georgia, serif;
+
+    background: url('https://i.imgur.com/Ut1SxOv.jpeg') no-repeat center center fixed;
+
+    background-size: cover;
+
+    color: #f4e1d2;
+
+    text-shadow: 0 0 4px #8b3000;
+
+  }
+
+
+
+  /* Overlay for readability */
+
+  .overlay {
+
+    background: rgba(35, 10, 0, 0.8);
+
+    min-height: 100vh;
+
+    padding-bottom: 3rem;
+
+  }
+
+
+
+  header {
+
+    background: #8b3e00cc;
+
+    padding: 2.5rem 1rem;
+
+    text-align: center;
+
+    border-bottom: 3px solid #d25e00;
+
+  }
+
+
+
+  header h1 {
+
+    margin: 0;
+
+    font-size: 3.8rem;
+
+    font-weight: 900;
+
+    color: #ffae42;
+
+    text-shadow: 0 0 10px #ff7a00;
+
+    font-family: 'Cinzel Decorative', cursive;
+
+  }
+
+
+
+  header p {
+
+    font-size: 1.4rem;
+
+    margin-top: 0.3rem;
+
+    font-style: italic;
+
+    color: #f7b86e;
+
+  }
+
+
+
+  nav {
+
+    background: #6e2700cc;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 2.5rem;
+
+    padding: 1rem 0;
+
+    border-bottom: 2px solid #d25e00;
+
+    font-weight: bold;
+
+    font-size: 1.1rem;
+
+  }
+
+
+
+  nav a {
+
+    color: #ffd699;
+
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+
+  }
+
+  nav a:hover {
+
+    color: #ffae42;
+
+    text-shadow: 0 0 5px #ff7a00;
+
+  }
+
+
+
+  section {
+
+    max-width: 1100px;
+
+    margin: 2rem auto;
+
+    padding: 1rem 1.5rem;
+
+    background: #4a1d00cc;
+
+    border-radius: 12px;
+
+    box-shadow: 0 0 15px #8b3000aa;
+
+  }
+
+
+
+  section h2 {
+
+    font-family: 'Cinzel Decorative', cursive;
+
+    font-size: 2.4rem;
+
+    color: #ffb347;
+
+    border-bottom: 3px solid #d25e00;
+
+    padding-bottom: 0.3rem;
+
+    margin-bottom: 1.2rem;
+
+  }
+
+
+
+  /* Text styling */
+
+  p {
+
+    font-size: 1.1rem;
+
+    line-height: 1.6;
+
+    color: #ffe8cc;
+
+  }
+
+
+
+  /* Grid for images and descriptions */
+
+  .grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+
+    gap: 1.8rem;
+
+  }
+
+
+
+  .grid-item {
+
+    background: #5a2e00dd;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow: 0 0 10px #d25e0055;
+
+    transition: transform 0.3s ease;
+
+  }
+
+  .grid-item:hover {
+
+    transform: scale(1.04);
+
+  }
+
+
+
+  .grid-item img {
+
+    width: 100%;
+
+    height: 190px;
+
+    object-fit: cover;
+
+    display: block;
+
+  }
+
+
+
+  .grid-item h3 {
+
+    margin: 0.6rem 1rem 0 1rem;
+
+    color: #ffbd69;
+
+    font-family: 'Cinzel Decorative', cursive;
+
+    font-size: 1.6rem;
+
+  }
+
+
+
+  .grid-item p {
+
+    margin: 0.3rem 1rem 1rem 1rem;
+
+    font-style: italic;
+
+    color: #f9d9a8;
+
+  }
+
+
+
+  .price {
+
+    margin: 0 1rem 1rem 1rem;
+
+    font-weight: 900;
+
+    color: #ff7a00;
+
+    font-size: 1.2rem;
+
+    font-family: 'Georgia', serif;
+
+  }
+
+
+
+  /* Contact section */
+
+  .contact {
+
+    text-align: center;
+
+    background: #7c3e00cc;
+
+    padding: 2rem 1rem;
+
+    border-radius: 12px;
+
+    box-shadow: 0 0 15px #ff7a0055;
+
+  }
+
+
+
+  .contact p {
+
+    margin: 0.5rem 0;
+
+    font-size: 1.15rem;
+
+    color: #ffd080;
+
+  }
+
+
+
+  .contact a {
+
+    color: #ffbb44;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+  }
+
+  .contact a:hover {
+
+    color: #ff9a00;
+
+    text-shadow: 0 0 8px #ff7a00;
+
+  }
+
+
+
+  /* Footer */
+
+  footer {
+
+    background: #3d1e00cc;
+
+    color: #cc7f1d;
+
+    text-align: center;
+
+    font-size: 0.95rem;
+
+    padding: 1rem 0;
+
+    border-top: 2px solid #d25e00;
+
+    font-family: 'Georgia', serif;
+
+  }
+
+
+
+  /* Scroll smooth */
+
+  html {
+
+    scroll-behavior: smooth;
+
+  }
+
+
+
+</style>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="overlay">
+
+
+
+    <header>
+
+      <h1>HELDORYA</h1>
+
+      <p>Forge 1.20.1 Modded Minecraft Server — A Realm of Adventure & Craft</p>
+
+    </header>
+
+
+
+    <nav>
+
+      <a href="#welcome">Welcome</a>
+
+      <a href="#explore">Explore the World</a>
+
+      <a href="#laws">Laws of the Land</a>
+
+      <a href="#contact">Contact</a>
+
+    </nav>
+
+
+
+    <section id="welcome">
+
+      <h2>Welcome, Brave Adventurer!</h2>
+
+      <p>
+
+        Enter the legendary realm of <strong>Heldorya</strong>, where ancient magic and fierce battles await. 
+
+        Join a thriving community of explorers, builders, and warriors on our Forge 1.20.1 modded server.
+
+        Traverse enchanted lands, construct mighty fortresses, and tame dragons born of fire. The journey is yours to command.
+
+      </p>
+
+      <p>
+
+        Prepare yourself — your story begins now.
+
+      </p>
+
+    </section>
+
+
+
+    <section id="explore">
+
+      <h2>Explore the World</h2>
+
+      <div class="grid">
+
+
+
+        <div class="grid-item">
+
+          <img src="https://i.imgur.com/U8T7L9r.jpeg" alt="Medieval Spawn Hub" />
+
+          <h3>Medieval Spawn Hub</h3>
+
+          <p>
+
+            Behold the heart of Heldorya — a quaint, cobblestone sanctuary where travelers gather and alliances are forged.
+
+            Its warm hearths and sturdy walls promise safety from the wilds beyond.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="grid-item">
+
+          <img src="https://i.imgur.com/qXTyxXk.jpeg" alt="Habitable Bridge" />
+
+          <h3>Habitable Bridge</h3>
+
+          <p>
+
+            Cross the grand bridge, home to watchtowers and living quarters nestled in its massive stone supports.  
+
+            A marvel of architecture and defense, it stands as a sentinel over roaring rivers below.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="grid-item">
+
+          <img src="https://i.imgur.com/GOtCjkI.jpeg" alt="Enchanted Castle Gardens" />
+
+          <h3>Enchanted Castle Gardens</h3>
+
+          <p>
+
+            Wander through these serene gardens where blooming flowers whisper ancient secrets, and mystical fountains sing of forgotten spells.
+
+            A perfect refuge for weary knights and wandering souls alike.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="grid-item">
+
+          <img src="https://i.imgur.com/6Jffu2A.jpeg" alt="Rules & Info Hall" />
+
+          <h3>Rules & Info Hall</h3>
+
+          <p>
+
+            This grand hall holds the laws of Heldorya, inscribed on majestic banners and carved stone tablets.
+
+            Every visitor is sworn to uphold the honor and peace within these walls.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="grid-item">
+
+          <img src="https://i.imgur.com/k41Y8EN.jpeg" alt="The Labyrinth of Shadows" />
+
+          <h3>The Labyrinth of Shadows</h3>
+
+          <p>
+
+            Dare to enter the twisting maze where shadow and light dance in eternal struggle.
+
+            Only the brave and cunning may find their way through this ancient puzzle crafted by forgotten sorcerers.
+
+          </p>
+
+        </div>
+
+
+
+        <div class="grid-item">
+
+          <img src="https://i.imgur.com/bVJ7TPX.jpeg" alt="Medieval Cells" />
+
+          <h3>Medieval Cells</h3>
+
+          <p>
+
+            Dark, cold, and grim — these prison cells have held traitors and thieves alike.
+
+            Whispered tales tell of desperate souls yearning for freedom, their echoes haunting the stone walls.
+
+          </p>
+
+        </div>
+
+
+
+      </div>
+
+    </section>
+
+
+
+    <section id="laws">
+
+      <h2>Laws of the Land</h2>
+
+      <p>In the realm of Heldorya, all adventurers must abide by these sacred laws, ensuring harmony and honor for all:</p>
+
+      <ul>
+
+        <li><strong>No griefing:</strong> The destruction of others’ creations shall not be tolerated.</li>
+
+        <li><strong>Respect others:</strong> Harassment and hate speech are banished from this land.</li>
+
+        <li><strong>Fair play:</strong> Use of cheats or exploits is forbidden by royal decree.</li>
+
+        <li><strong>Cooperation:</strong> Join forces with fellow travelers to build, explore, and conquer.</li>
+
+        <li><strong>Secret password:</strong> Only those who whisper the word <em>ombrafuoco</em> may enter the hidden realms.</li>
+
+      </ul>
+
+    </section>
+
+
+
+    <section id="contact" class="contact">
+
+      <h2>Contact Us</h2>
+
+      <p>For access requests, questions, or alliances, reach out:</p>
+
+      <p>Email: <a href="mailto:heldorya.admins@gmail.com">heldorya.admins@gmail.com</a></p>
+
+      <p>Instagram: <a href="https://www.instagram.com/heldorya_studio" target="_blank">@heldorya_studio</a></p>
+
+      <p>Discord: <em>Ask in-game or via Instagram for invite</em></p>
+
+      <p><strong>Server IP:</strong> <code>moddedw0rld.bh-games.com</code></p>
+
+    </section>
+
+
+
+    <footer>
+
+      &copy; 2025 Heldorya Minecraft Server — Crafted with honor and passion.
+
+    </footer>
+
+  </div>
+
+</body>
+
+</html>
